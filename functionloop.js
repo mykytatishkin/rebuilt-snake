@@ -1,10 +1,14 @@
 
-function goldfactory(){
-    requestAnimationFrame(goldfactory);
+function loop(){
+
+    requestAnimationFrame(loop);
+
     if(++count < 4){
         return;
     }
+
     count = 0;
+
     context.clearRect(0, 0, canvas.width, canvas.height);
 
     snake.x += snake.dx;
@@ -14,8 +18,8 @@ function goldfactory(){
         snake.x = canvas.width - grid;
     }
     else if(snake.x >= canvas.width){
-            snake.x = 0;
-        }
+	snake.x = 0;
+    }
     if(snake.y < 0){
         snake.y = canvas.height - grid;
     }
@@ -60,4 +64,5 @@ snake.cells.forEach(function (cell,index){
         }
     }
   });
-requestAnimationFrame(goldfactory);
+
+requestAnimationFrame(loop);
