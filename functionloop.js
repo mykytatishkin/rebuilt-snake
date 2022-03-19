@@ -34,6 +34,9 @@ function loop(){
         snake.cells.pop();
     }
 
+    // This must be also in the function body
+    // It seems that the author just messed up parenthesises.
+
     context.fillStyle = 'black';
     context.fillRect(cube.x, cube.y, grid - 1, grid - 1);
 
