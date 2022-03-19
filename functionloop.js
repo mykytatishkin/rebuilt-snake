@@ -34,6 +34,9 @@ function loop(){
         snake.cells.pop();
     }
 
+    context.fillStyle = 'black';
+    context.fillRect(cube.x, cube.y, grid - 1, grid - 1);
+
     /* This is drawing section, that's why it must
      * be in the function body
      */
@@ -42,13 +45,16 @@ function loop(){
 
 	context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
 
+	// Snake eats cube, longer body (more cells)
 	if(cell.x === cube.x && cell.y === cube.y){
 	    snake.maxCells++;
 
 	    cube.x = getRandomInt(0, 25) * grid;
 	    cube.y = getRandomInt(0, 25) * grid;
+
 	}
 
+	// Snake bumps in itself.
 	for (var i = index +1; i < snake.cells.length; i++){
 	    if(cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
 		snake.x = 160;
@@ -60,15 +66,10 @@ function loop(){
 
 		cube.x = getRandomInt(0,25)*grid;
 		cube.y = getRandomInt(0,25)*grid;
-
 	    }
 	}
 
     });
 }
-
-
-context.fillStyle = 'black';
-context.fillRect(cube.x, cube.y, grid - 1, grid - 1);
 
 requestAnimationFrame(loop);
