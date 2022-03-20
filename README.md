@@ -1,4 +1,7 @@
 # Broken snake 🐍
+
+[![License](https://img.shields.io/badge/License-GNU%20GPLv3-brightgreen)](https://github.com/GTeasera/Broken-Snake-Guide/blob/main/LICENSE)
+
 Help us to make the snake game better!
 
 ## Briefly
