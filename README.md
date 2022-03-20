@@ -12,3 +12,6 @@ Help us to make the snake game better!
 ## Additional info
 * Link to the guide: https://telegra.ph/Klassicheskaya-zmejka-na-HTML-CSS-JS-05-05
 * You can check out the first commit and see the condition of a self proclaimed "programming guide" :)
+* Screenshot:
+
+![img](screenshot.jpeg)
