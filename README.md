@@ -1,4 +1,4 @@
-# Broken snake
+# Broken snake 🐍
 Help us to make the snake game better!
 
 ## Briefly
