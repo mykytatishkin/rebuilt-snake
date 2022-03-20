@@ -1,4 +1,4 @@
-# Fix a broken guide program
+# Fix a broken guide repo
 ## Introduction
 This repository was created and being maintained with almost no knowledge of html/css/js. One of us found a guide to start with the basics.
 Instead, we struggled to even run the program, because after following all steps in the guide the browser showed nothing!
