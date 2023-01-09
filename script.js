@@ -1,9 +1,34 @@
+var canvas = document.getElementById('game');
+var context = canvas.getContext('2d');
+
+var grid = 16;
+var count = 0;
+
+var snake = {
+    x: 160,
+    y: 160,
+
+    dx: 0,
+    dy: grid,
+
+    cells: [],
+    maxCells: 2
+};
+
+var cube = {
+    x: 320,
+    y: 320
+};
+
+function getRandomInt(min, max){
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 
 function loop(){
 
     requestAnimationFrame(loop);
 
-    // Logic of this code block is still gets me wondering...
     if(++count < 4){
         return;
     }
@@ -34,21 +59,13 @@ function loop(){
         snake.cells.pop();
     }
 
-    // This must be also in the function body
-    // It seems that the author just messed up parenthesises.
-
     context.fillStyle = 'black';
     context.fillRect(cube.x, cube.y, grid - 1, grid - 1);
-
-    /* This is drawing section, that's why it must
-     * be in the function body
-     */
 
     snake.cells.forEach(function (cell,index){
 
 	context.fillRect(cell.x, cell.y, grid - 1, grid - 1);
 
-	// Snake eats cube, longer body (more cells)
 	if(cell.x === cube.x && cell.y === cube.y){
 	    snake.maxCells++;
 
@@ -57,7 +74,6 @@ function loop(){
 
 	}
 
-	// Snake bumps in itself.
 	for (var i = index +1; i < snake.cells.length; i++){
 	    if(cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
 		snake.x = 160;
@@ -76,3 +92,25 @@ function loop(){
 }
 
 requestAnimationFrame(loop);
+
+document.addEventListener('keydown', function (e) {
+
+    if(e.which === 37 && snake.dx === 0){
+        snake.dx = -grid;
+        snake.dy = 0;
+    }
+
+    else if(e.which === 38 && snake.dy === 0){
+        snake.dy = -grid;
+        snake.dx = 0;
+    }
+
+    else if(e.which === 39 && snake.dx === 0){
+        snake.dx = grid;
+        snake.dy = 0;
+    }
+    else if(e.which === 40 && snake.dy === 0){
+        snake.dy = grid;
+        snake.dx = 0;
+    }
+});
