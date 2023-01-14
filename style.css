@@ -15,4 +15,10 @@ canvas{
     border-style: solid;
     border-width: thick;
     border-color: black;
+    margin: 15%;
     }
+
+span#counter {
+    font-size: 40px;
+    font-weight: bold;
+}

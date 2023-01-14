@@ -1,5 +1,6 @@
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
+let counter = document.getElementById('counter');
 
 var grid = 16;
 var count = 0;
@@ -68,6 +69,7 @@ function loop(){
 
 	if(cell.x === cube.x && cell.y === cube.y){
 	    snake.maxCells++;
+        counter.textContent = snake.maxCells - 2;
 
 	    cube.x = getRandomInt(0, 25) * grid;
 	    cube.y = getRandomInt(0, 25) * grid;
@@ -82,6 +84,8 @@ function loop(){
 		snake.maxCells = 2;
 		snake.dx = 0;
 		snake.dy = grid;
+
+        counter.textContent = 0;
 
 		cube.x = getRandomInt(0,25)*grid;
 		cube.y = getRandomInt(0,25)*grid;
