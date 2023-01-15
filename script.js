@@ -1,5 +1,6 @@
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
+let counter = document.getElementById('counter');
 
 var grid = 16;
 var count = 0;
@@ -76,13 +77,13 @@ function loop(){
         if(cell.x === food.x && cell.y === food.y){
             // when snake eats the food
             snake.maxCells++;
+            counter.textContent = snake.maxCells - 2;
 
             // Create new food at random place
             food.x = getRandomInt(0, 25) * grid;
             food.y = getRandomInt(0, 25) * grid;
-
         }
-
+        
         for (var i = index + 1; i < snake.cells.length; i++){
             if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
                 // If snake bump into itself create new one at random place
@@ -92,6 +93,8 @@ function loop(){
                 snake.maxCells = 2;
                 snake.dx = 0;
                 snake.dy = grid;
+                
+                counter.textContent = 0;
 
                 food.x = getRandomInt(0,25)*grid;
                 food.y = getRandomInt(0,25)*grid;
